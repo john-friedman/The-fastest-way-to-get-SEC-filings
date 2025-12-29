@@ -1,8 +1,15 @@
-# (Possibly) The fastest way to get SEC filings
+# The fastest way to get SEC filings
 
 The current fastest (public) way to get notified of new SEC filings is by monitoring the SEC's RSS feed. There is (possibly) a faster way.
 
-Disclaimer: This has not been tested yet. It will be, after the SEC returns from winter break. If it works, "(Possibly)" will be removed.
+Disclaimer: This has been tested and works! 
+
+**Screenshots of 4s faster for a 13F-NT filing.**
+
+Faster Method (time in PT)
+![fastermethod](fastermethod.png)
+RSS Method (time in UTC)
+![rssmethod](rssmethod.png)
 
 ## Timeline of a SEC filing
 

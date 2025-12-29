@@ -6,14 +6,19 @@ import re
 import csv
 import json
 
-# Will replace this day the of, with the increment. If it works, yay!
+start = '0001172661-25-005305' # this existed before.
+
+# Extract the parts
+prefix = start.rsplit('-', 1)[0]  # '0001193125-25'
+start_num = int(start.rsplit('-', 1)[1])  # 334399
+
+# Generate accession numbers
 ACCESSION_NUMBERS = [
-    '0001193125-25-331289',
-    '0001193125-25-331289',
-    '0001193125-25-331289',
-    '0001193125-25-331289',
-    '0001193125-25-331289',
+    f'{prefix}-{start_num + (i * 5):06d}'
+    for i in range(5)
 ]
+
+print(ACCESSION_NUMBERS)
 
 USER_AGENT = 'John Holland johnholland@gmail.com' # replace with yours
 MAX_REQUESTS_PER_SECOND = 5
@@ -42,7 +47,7 @@ async def check_accession(session, accession, semaphore):
                         
                         ciks = re.findall(r'CIK=(\d+)&', content)
                         ciks = list(set([int(cik) for cik in ciks]))
-                        print(ciks)
+
 
                         if ciks != []:  # Non-empty check
                             print(f"✓ [{timestamp}] Accession {accession} - SUCCESS on attempt {attempt}")
@@ -59,7 +64,7 @@ async def check_accession(session, accession, semaphore):
                                 'content_length': len(content)
                             }
                         else:
-                            print(f"  [{timestamp}] Accession {accession} - Empty response (attempt {attempt})")
+                            pass
                     
                     # Rate limiting delay
                     await asyncio.sleep(DELAY_BETWEEN_REQUESTS)
