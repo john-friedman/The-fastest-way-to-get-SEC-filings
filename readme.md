@@ -2,7 +2,7 @@
 
 The current fastest (public) way to get notified of new SEC filings is by monitoring the SEC's RSS feed. There is (possibly) a faster way.
 
-Disclaimer: This has been tested and works! 
+Disclaimer: This has been tested and works! NOTE: as of 10/5/2026, the SEC has patched this method! URL prediction still works, BUT you must now include CIK. This makes the problem much harder.
 
 **Screenshots of 4s faster for a 13F-NT filing.**
 
